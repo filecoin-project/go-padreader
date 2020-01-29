@@ -7,9 +7,8 @@ import (
 	ffi "github.com/filecoin-project/filecoin-ffi"
 )
 
-// PaddedSize produces the number of not-bit-padded bytes that will fit into
-// the smallest sector which is large enough to hold size-qty of not-bit-padded
-// bytes.
+// PaddedSize takes size to the next power of two and then returns the number of
+// not-bit-padded bytes that would fit into a sector of that size.
 func PaddedSize(size uint64) uint64 {
 	logv := 64 - bits.LeadingZeros64(size)
 
