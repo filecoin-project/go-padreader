@@ -2,8 +2,8 @@ package padreader
 
 import (
 	"testing"
-
-	"gotest.tools/assert"
+	
+	"github.com/stretchr/testify/assert"
 )
 
 func TestComputePaddedSize(t *testing.T) {

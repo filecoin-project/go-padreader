@@ -4,8 +4,7 @@ go 1.13
 
 require (
 	github.com/filecoin-project/filecoin-ffi v0.0.0-00010101000000-000000000000
-	github.com/google/go-cmp v0.4.0 // indirect
-	gotest.tools v2.2.0+incompatible
+	github.com/stretchr/testify v1.4.0
 )
 
 replace github.com/filecoin-project/filecoin-ffi => ./extern/filecoin-ffi
