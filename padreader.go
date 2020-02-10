@@ -5,6 +5,7 @@ import (
 	"math/bits"
 
 	ffi "github.com/filecoin-project/filecoin-ffi"
+	"github.com/filecoin-project/specs-actors/actors/abi"
 )
 
 // PaddedSize takes size to the next power of two and then returns the number of
@@ -13,12 +14,12 @@ func PaddedSize(size uint64) uint64 {
 	logv := 64 - bits.LeadingZeros64(size)
 
 	sectSize := uint64(1 << logv)
-	bound := ffi.GetMaxUserBytesPerStagedSector(sectSize)
+	bound := uint64(ffi.GetMaxUserBytesPerStagedSector(abi.SectorSize(sectSize)))
 	if size <= bound {
 		return bound
 	}
 
-	return ffi.GetMaxUserBytesPerStagedSector(1 << (logv + 1))
+	return uint64(ffi.GetMaxUserBytesPerStagedSector(1 << (logv + 1)))
 }
 
 type nullReader struct{}
