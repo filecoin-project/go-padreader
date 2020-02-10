@@ -18,7 +18,7 @@ func PaddedSize(size uint64) abi.UnpaddedPieceSize {
 		return bound
 	}
 
-	return abi.PaddedPieceSize(1 << (logv + 1)).Unpadded()
+	return abi.PaddedPieceSize(1 << (logv + 1)).Unpadded() // nolint: typecheck
 }
 
 type nullReader struct{}
