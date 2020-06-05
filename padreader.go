@@ -10,6 +10,10 @@ import (
 // PaddedSize takes size to the next power of two and then returns the number of
 // not-bit-padded bytes that would fit into a sector of that size.
 func PaddedSize(size uint64) abi.UnpaddedPieceSize {
+	if size <= 127 {
+		return abi.UnpaddedPieceSize(127)
+	}
+
 	logv := 64 - bits.LeadingZeros64(size)
 
 	sectSize := uint64(1 << logv)
