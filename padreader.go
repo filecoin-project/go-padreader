@@ -4,7 +4,7 @@ import (
 	"io"
 	"math/bits"
 
-	"github.com/filecoin-project/specs-actors/actors/abi"
+	"github.com/filecoin-project/go-state-types/abi"
 )
 
 // PaddedSize takes size to the next power of two and then returns the number of
